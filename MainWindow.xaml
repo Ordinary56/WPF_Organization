@@ -1,0 +1,61 @@
+﻿<Window x:Class="WPF_Organization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Organization"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="270"/>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" 
+                  x:Name="dg_Data"
+                  ItemsSource="{Binding OrganizationCollection}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Index"
+                                    Binding="{Binding Index}"/>
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}"/>
+               
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Website"
+                                     Binding="{Binding Website}"/>
+                <DataGridTextColumn Header="Country"
+                                    Binding="{Binding Country}" />
+                <DataGridTextColumn Header="Description"
+                                     Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Founded"
+                                     Binding="{Binding Founded}"/>
+                <DataGridTextColumn Header="Industry"
+                                    Binding="{Binding Industry}" />
+                <DataGridTextColumn Header="EmployeeNumber"
+                                    Binding="{Binding EmployeesNumber}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Width="160" Content="Szűrés ország szerint:"
+                   VerticalAlignment="Center"/>
+            <ComboBox
+                SelectionChanged="cb_Country_SelectionChanged"
+                x:Name="cb_Country" 
+                VerticalAlignment="Center" Width="200"/>
+
+            <Label Width="160" Content="Szűrés év szerint:"
+                   VerticalAlignment="Center"/>
+            <ComboBox
+                SelectionChanged="cb_Year_SelectionChanged"
+                x:Name="cb_Year" VerticalAlignment="Center" Width="200"/>
+        </StackPanel>
+        <Border Grid.Row="2">
+            <Grid>
+                
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
